@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import globalContext from './../../context/global/globalContext'
 import LoadingScreen from '../../components/loading/LoadingScreen'
+import AegisDashboard from '../AegisDashboard'
 
 import socketContext from '../../context/websocket/socketContext'
 import { CS_FETCH_LOBBY_INFO } from '../../game/actions'
@@ -32,10 +33,10 @@ const ConnectWallet = () => {
     }
   }, [socket])
 
+  const isGameCallback = query.get('walletAddress') && query.get('gameId') && query.get('username')
+
   return (
-    <>
-      <LoadingScreen />
-    </>
+    isGameCallback ? <LoadingScreen /> : <AegisDashboard />
   )
 }
 
