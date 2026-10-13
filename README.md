@@ -1,93 +1,96 @@
-# DeepWhale
+# Flipside | Project AegisFlow
 
-## Decentralized AI-Powered Multi-Chain Gaming Platform
+**Secure value. Faster movement.**
 
-> **Blockchain Gaming on the 0G Network**  
-> DeepWhale is a gaming platform built on the **0G Network**, using decentralized AI. It supports multiple blockchains like **Ethereum (EVM)**, **Solana**, and more. Play-to-Earn (P2E) mechanics let you earn real crypto rewards.
+AegisFlow is a proposed cryptocurrency-based financial platform focused on secure payments and fast digital asset transfers for individuals and businesses. The concept draws on Flipside's background in blockchain data, analytics, and interpreting onchain activity.
 
----
+“Aegis” represents protection, while “Flow” reflects the efficient movement of digital value.
 
-## Current Features
+## Project status
 
-- **Decentralized AI**
-- **Multi-Chain Support**: Play on **Ethereum (EVM)**, **Solana**, and other supported blockchains. Your assets and rewards can move between chains.
-- **Play-to-Earn (P2E)**: Earn real **crypto rewards** while playing. Rewards are powered by the 0G Network's AI to make payouts fair.
-- **NFT Avatars**: Create and use **NFT avatars**, supported on Ethereum, and other networks.
-- **On-Chain Game Logic**: All gameplay is controlled by smart contracts.
-- **Token Integration**: Stake and earn with native tokens across different blockchains.
-- **Mobile and Desktop Ready**: The platform works on both **desktop** and **mobile** devices.
+**Planning draft — October 13, 2026.**
 
----
+AegisFlow is a working name, and the capabilities described here are planned. This repository currently contains planning materials; the Node.js application, `package.json`, and npm scripts have not yet been added. Development milestones, launch dates, and performance benchmarks remain unconfirmed.
 
-## Coming Soon
+## Objective
 
-- **More Games**: New games like **Blackjack**, **Roulette**, **Slots**, and others. All powered by decentralized AI.
-- **Tournaments**: Compete in cross-chain tournaments with prize pools. AI will manage the events and rewards.
-- **Social Features**: Chat, add friends, and interact with other players across different blockchains.
-- **Better P2E**: Improved reward systems that will work across all blockchains with the help of AI.
+Build a secure and efficient foundation for cryptocurrency payments and digital asset transfers, with clear transaction information and reliable service as usage grows.
 
+## Planned capabilities
 
-[![React](https://img.shields.io/badge/React-16.13.1-61dafb?logo=react)](#)
-[![Node.js](https://img.shields.io/badge/Node.js-Express-43853d?logo=node.js)](#)
-[![TypeScript](https://img.shields.io/badge/TypeScript-4.9-blue?logo=typescript)](#)
-[![MongoDB](https://img.shields.io/badge/Database-MongoDB-47A248?logo=mongodb)](#)
-[![Socket.IO](https://img.shields.io/badge/Socket.IO-4.8.1-black?logo=socket.io)](#)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.1.3-purple?logo=bootstrap)](#)
-[![Styled Components](https://img.shields.io/badge/Styled_Components-5.1.1-DB7093?logo=styled-components)](#)
-[![Axios](https://img.shields.io/badge/Axios-1.4.0-5A29E4?logo=axios)](#)
+- **Send and receive cryptocurrency:** Support payments and digital asset transfers.
+- **Track transactions:** Provide clear payment status and transaction history.
+- **Authorize transfers securely:** Apply strong wallet authorization and authentication.
+- **Explain payment details:** Show recipients, network fees, and transaction status before and after sending funds.
+- **Support business integrations:** Explore APIs for initiating and tracking payments, subject to the final product scope.
 
+The initial concept focuses on sending, receiving, and monitoring payments. Broader financial applications are a longer-term ambition.
 
-## Quick Start
+## Technical priorities
+
+### Security by design
+
+Prioritize secure key management, robust authentication, transaction authorization, and independent security review before launch. The custody model will be selected during architecture planning.
+
+### Fast and dependable transactions
+
+Evaluate transaction processing and settlement approaches against measurable speed, cost, and reliability goals. Performance claims will depend on the selected blockchain network and testing results.
+
+### Scalable infrastructure
+
+Design transaction services and monitoring to support growing demand while maintaining accurate payment status and operational resilience.
+
+### Clear user experience
+
+Make payment information understandable so users can review transfers and follow their progress confidently.
+
+## Technology direction
+
+| Area | Planned approach |
+| --- | --- |
+| Application runtime | Node.js |
+| Package management and scripts | npm |
+| Blockchain network | To be selected during technical planning |
+| Supported assets | To be defined |
+| Wallet and custody model | To be decided during architecture planning |
+| Payment APIs | To be evaluated against the final product scope |
+| Performance targets | To be defined and validated through testing |
+
+## Getting started
+
+### Prerequisites
+
+- Node.js with npm installed.
+- The Node.js application source and a `package.json` containing a `start` script.
+
+### Install dependencies
+
+From the project root, run:
 
 ```bash
-git clone <git-repository-url>
-cd DeepWhale
-
-# Install root dependencies
 npm install
+```
 
-# Install client dependencies from the project root
-npm install --prefix client
+### Start the application
 
-# Start
+```bash
 npm start
 ```
 
-Run these commands from the project root. `npm start` launches the API and client together; `npm run build` builds the client for production. Dependency installation does not start the server.
+These are the intended setup commands. They will become runnable once the application and its npm configuration are implemented. Required environment variables, service connections, and the application address will be documented as those choices are confirmed.
 
-On Windows PowerShell, use `npm.cmd` in place of `npm` if execution policy blocks `npm.ps1` (for example, `npm.cmd start`). You do not need to change PowerShell's execution policy.
+## Planning roadmap
 
-If npm reports `UNABLE_TO_VERIFY_LEAF_SIGNATURE` on Windows, Node 24.6 or newer can use the Windows certificate trust store. In the same PowerShell session, run `$env:NODE_USE_SYSTEM_CA = '1'` before installing dependencies. Keep certificate verification enabled.
+1. Confirm the initial product scope and payment flows.
+2. Select the blockchain network, supported assets, and custody model.
+3. Define security requirements and measurable performance targets.
+4. Implement the Node.js application and core payment workflows.
+5. Validate transaction tracking, reliability, and scalability.
+6. Complete independent security review before launch.
 
----
+## Background references
 
-## Config
+- [Flipside company profile](https://www.linkedin.com/company/flipside-crypto/)
+- [Public announcement concerning Flipside, SonarX, and edisyl](https://www.einnews.com/pr_news/913502316/flipside-sells-blockchain-data-business-to-sonarx-commits-fully-to-edisyl-enterprise-ai-platform)
 
-- **JWT issuance** – `POST /api/auth` in `controllers/auth.js` signs a JWT with `config.JWT_SECRET_KEY` (see `SESSION_EXPIRES_IN`). The payload only contains `user.id` so you can safely extend it.
-- **Client storage** – Tokens are pushed into Axios’ default headers via `client/src/helpers/setAuthToken.js`. Persist them in `localStorage`/`sessionStorage` from your auth screen and call `setAuthToken(token)` on boot.
-- **Protected routes** – `middleware/auth.js` expects the token in the `x-auth-token` header and injects `req.user`. Use the middleware on any route that needs authenticated identity.
-
-## Contributing Guidelines
-
-### Pre-PR Checklist
-
-- [ ] Branch is updated with `main`  
-- [ ] No linting errors
-- [ ] No stray console logs or unused variables  
-- [ ] UI changes tested on desktop and mobile  
-- [ ] Added documentation or comments where needed  
-- [ ] Any new `.env` variables are documented  
-
-### Pull Request Rules
-- Use clear PR titles:
-  - `feat: add tournament lobby UI`
-- PR description must include:
-  - What changed  
-  - Why it changed  
-  - How to test  
-  - Screenshots for UI updates  
-- Tag related issues/tasks.
-
-## Confidentiality
-This repository is proprietary to **0G AI**.
-
+AegisFlow is a new proposal supplied for the interview brief, not a project verified in those public materials. This README describes that proposed direction.
